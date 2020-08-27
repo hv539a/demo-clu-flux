@@ -25,7 +25,6 @@ steps:
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'azure-resource-manager-service-connection'
-    scriptType: 'batch'
     scriptLocation: 'inlineScript'
     inlineScript: |
       az aks get-credentials --resource-group Kubernetes_dev --name K8stest_dev

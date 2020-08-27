@@ -26,15 +26,8 @@ steps:
   inputs:
     azureSubscription: 'azure-resource-manager-service-connection'
     scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az aks get-credentials --resource-group Kubernetes_dev --name K8stest_dev
-      helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-      helm repo add fluxcd https://charts.fluxcd.io
-      helm repo add jetstack https://charts.jetstack.io
-      helm repo update
-      kubectl apply -f https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/flux-helm-release-crd.yaml
-      kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml
+    scriptLocation: 'scriptPath'
+    scriptPath: '$(Build.SourcesDirectory)/scripts'
 
 - task: Kubernetes@1
   inputs:

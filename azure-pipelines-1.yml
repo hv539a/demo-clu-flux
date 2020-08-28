@@ -27,7 +27,7 @@ steps:
     azureSubscription: 'azure-resource-manager-service-connection'
     scriptType: 'ps'
     scriptLocation: 'scriptPath'
-    scriptPath: '$(Build.SourcesDirectory)/scripts'
+    scriptPath: '$(Build.SourcesDirectory)/hv539a/demo-clu-flux/tree/master/scripts'
 
 - task: Kubernetes@1
   inputs:
